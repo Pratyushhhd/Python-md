@@ -1005,3 +1005,1413 @@ full_name = create_name("pratyush", "maharjan")
 print(full_name)
 
 ```
+
+
+# Default arguments
+```
+
+from dis import disco
+
+
+# def net_price(list_price, discount=0, tax = 0.05):
+#     return list_price * (1 - discount) * (1 + tax)
+
+# print(net_price(500))
+# print(net_price(500, 0.1))
+# print(net_price(500, 0.1, 0))
+
+import time
+def count(end, start=0):
+    for x in range(start, end+1):
+        print(x)
+        time.sleep(1)
+    print("DONE!")
+count(30, 15)
+
+```
+
+# Keyword argument
+```
+
+# def hello(greeting, title, first, last):
+#     print(f"{greeting} {title} {first}, {last}")
+#
+# hello("Hello", title = "Mr", first = "Pratyush", last= "Maharjan")
+
+# for x in range(1, 11):
+    # print(x, end=" ")
+
+def get_phone(country, area, first, last):
+    return f"{country}-{area}-{first}-{last}"
+
+phone_num = get_phone(country=1, area=123, first=456, last=7890)
+print(phone_num)
+```
+# args and kwargs
+```
+
+# Args
+def add(*args):
+    total = 0
+    for arg in args :
+        total += arg
+    return total
+print(add(1, 2, 3))
+
+def display_name(*args):
+    for arg in args:
+        print(arg, end=" ")
+
+display_name("Dr", "Pratyush", "Maharjan")
+
+# kwargs
+def print_address(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_address(street = "123 fake street",
+              city ="Detroit",
+              state ="MI")
+
+
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end=" ")
+    print()
+
+    if "apt" in kwargs:
+        print(f"{kwargs.get('apt')}")
+    elif "pobox" in kwargs:
+        print(f"{kwargs.get('street')}")
+        print(f"{kwargs.get('pobox')}")
+
+    else:
+        print(f"{kwargs.get('street')}")
+
+    print(f"{kwargs.get('city')}")
+    print(f"{kwargs.get('state')}")
+
+
+
+shipping_label("Dr", "Spongebob", "Squarepants", "III",
+               street = "123 fake street",
+               pobox = "787",
+               city="Detroit",
+               state ="MI")
+
+```
+
+# iterable
+```
+
+# iterables = An object/collection that can return its elements one at a time, allowing it  to be iterated over in a loop
+
+numbers =(1, 2, 3, 4, 5)
+
+for number in reversed(numbers):
+    print(number, end=" - ")
+
+name ="Pratyush Maharjan"
+
+for character in name:
+        print(character, end=" ")
+
+my_dictionary = {"A": 1, "B": 2, "C": 3 }
+
+for key ,value in my_dictionary.items():
+    print(f"{key} = {value}" )
+
+```
+
+
+# Membership operator
+```
+ word = "APPLE"
+ letter = input("Guess a letter in the secret word: ")
+
+ if letter not in word:
+     print(f"{letter} was not found")
+ else :
+     print(f"There is a {letter}")
+
+ students = {"Spongerbob","Patrick", "Sandy"}
+
+ student = input("Enter the name of a student: ")
+
+ if student not in students:
+    print(f"{student} was not found")
+ else:
+     print(f"{student} is a student")
+
+
+ grades = {"Sandy": "A", "Patrick": "B", "Spongebob": "C", "Squidward": "D"}
+
+ student = input("Enter the name of a student:")
+
+ if student in grades:
+     print(f"{student}'s grade is {grades[student]}")
+ else:
+     print(f"{student} was not found")
+
+
+email ="pratyushmaharjan90@gmail.com"
+
+if  "@" in email and "." in email:
+    print("Valid email")
+else:
+    print("Invalid email")
+
+```
+
+# List comprehension 
+```
+
+# list comprehension = A concise way to create list in Python
+#                   Compact and easier to read than traditional loops
+#                       [expression for value in iterable if condition ]
+
+doubles = [x * 2 for x in range (1,11)]
+triples = [y * 3 for y in range (1, 11)]
+squares = [z * z for z in range (1, 11)]
+
+print(squares)
+
+fruits = ["apple", "orange", "banana", "coconut"]
+fruits_char = [fruit[0] for fruit in fruits]
+
+print(fruits_char)
+
+
+numbers = [1, -2, 3, -4, 5, -6, -7, 8]
+positive_num = [num for num in numbers if num >= 0]
+negative_num = [num for num in numbers if num < 0]
+even_num = [num for num in numbers if num % 2 == 0]
+odd_num = [num for num in numbers if num % 2 == 1]
+
+
+print(odd_num)
+
+
+grades = [85, 42, 79, 90, 56, 61, 30]
+passing_grades = [grade for grade in grades if grade >= 60]
+
+print(passing_grades)
+
+```
+
+# Match-case statemnent
+
+```
+def is_weekend(day):
+    match day:
+        case "Saturday" |"Sunday":
+            return True
+        case "Monday" | "Tuesday" | "Wednesday" | "Thrusday" | "Friday":
+            return False
+        case _:
+            return False
+
+print(is_weekend("Monday"))
+
+```
+
+# Module
+
+```
+# import math
+# # import math as m
+# # from math import e
+# a, b, c, d, e = 1, 2, 3, 4, 5
+#
+# print(math.e ** a)
+# print(math.e ** b)
+# print(math.e ** c)
+# print(math.e ** d)
+# print(math.e ** e)
+
+import Example
+
+result = Example.pi
+result = Example.square(3)
+result = Example.circumference(3)
+result = Example.area(3)
+
+
+print(result)
+
+--------------------
+
+pi = 3.14159
+
+def square(x):
+    return x ** 2
+def cube(x):
+    return x ** 3
+def circumference(radius):
+    return 2 * pi * radius
+def area (radius):
+    return pi * radius ** 2
+
+
+```
+
+# Scope resolution
+
+```
+# variable scope = where a variable is visible and accessible
+# scope resolution = (LEGB) Local -> Enclosed -> Global -> Built-in
+
+def func1():
+    x = 1
+    def func2():
+        print(x)
+
+    func2()
+
+
+func1()
+
+
+def func1():
+    print(x)
+def func2():
+    print(x)
+
+x = 3
+
+func1()
+func2()
+
+
+from math import e
+def func1():
+    print(e)
+
+e = 3
+
+func1()
+```
+
+# if name ==' main '
+## Script 1
+```
+# if_name ==_ main__: (this secret can be impoerted OR run standlone Functions and classes in this module can be reused without the main block of code executing)
+
+
+def favorite_food(food):
+    print(f"Your favorite food is {food}")
+
+def main():
+    print("This is script 1")
+    favorite_food("Pizza")
+    print("Goodbye")
+
+
+if __name__ == '__main__':
+    main()
+```
+## Script 2
+```
+
+from script1 import *
+
+def favorite_drink(drink):
+    print(f"Your favorite drink is {drink}")
+
+print("This is script2")
+favorite_food("Sushi")
+favorite_drink("Coffee")
+print("Goodbye!")
+
+```
+
+# Banking Program
+
+```
+def show_balance(balance):
+    print("***********************")
+    print(f"Your Balance is ${balance:.2f}")
+    print("***********************")
+
+def deposit():
+    print("***********************")
+    amount = float(input("Enter the amount to be deposited: "))
+    print("***********************")
+
+    if amount < 0 :
+        print("***********************")
+        print("That's not a valid amount")
+        print("***********************")
+        return 0
+    else:
+        return amount
+def withdraw(balance):
+    print("***********************")
+    amount = float(input("Enter amount to be withdrawn: "))
+    print("***********************")
+
+    if amount > balance:
+        print("***********************")
+        print("Insufficient funds")
+        print("***********************")
+
+    elif amount < 0:
+        print("***********************")
+        print("Amount must be greater than 0")
+        print("***********************")
+        return 0
+    else:
+        return amount
+
+def main():
+    balance = 0
+    is_running = True
+
+    while is_running:
+        print("***********************")
+        print("    Banking Program    ")
+        print("***********************")
+        print("1. Show Balance")
+        print("2. Deposit!")
+        print("3. Withdraw")
+        print("4. Exit")
+        print("***********************")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            show_balance(balance)
+        elif choice =='2':
+            balance += deposit()
+        elif choice =='3':
+            balance -= withdraw(balance)
+        elif choice =='4':
+            is_running =False
+        else:
+            print("***********************")
+            print("That is not a valid choice")
+            print("***********************")
+
+    print("***********************")
+    print("Thank you! Have a nice day")
+    print("***********************")
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
+# Slot Game
+
+```
+import random
+
+def spin_row():
+    symbols = ['🍒', '🍉', '🍋', '🔔', '⭐']
+    return [random.choice(symbols) for _ in range(3)]
+
+def print_row(row):
+    print("***********************")
+    print(" | ".join(row))
+    print("***********************")
+
+def get_payout(row, bet):
+    if row[0] == row[1] == row[2]:
+        if row[0] == '🍒':
+            return bet * 3
+        elif row[0] == '🍉':
+            return bet * 4
+        elif row[0] == '🍋':
+            return bet * 5
+        elif row[0] == '🔔':
+            return bet * 10
+        elif row[0] == '⭐':
+            return bet * 20
+    return 0
+
+def main():
+    balance = 100
+
+    print("***********************")
+    print("Welcome to Python Slots")
+    print("Symbols: 🍒 🍉 🍋 🔔 ⭐")
+    print("***********************")
+
+    while balance > 0:
+        print(f"Current balance: ${balance}")
+
+        bet = input("Place your bet amount: ")
+
+        if not bet.isdigit():
+            print("Please enter a valid number.")
+            continue
+
+        bet = int(bet)
+        if bet > balance:
+            print("Insufficient funds.")
+            continue
+        if bet <= 0:
+            print("Bet must be greater than 0.")
+            continue
+
+        balance -= bet
+
+        row = spin_row()
+        print("Spinning...\n")
+        print_row(row)
+
+        payout = get_payout(row, bet)
+        if payout > 0:
+            print(f"You won ${payout}!")
+        else:
+            print("Sorry, you lost this round.")
+
+        balance += payout
+
+        if balance <= 0:
+            break
+
+        play_again = input("Do you want to spin again? (Y/N): ").strip().upper()
+        if play_again != 'Y':
+            break
+
+    print("******************************************")
+    print(f"Game over! Your final balance is ${balance}")
+    print("******************************************")
+
+if __name__ == '__main__':
+    main()
+
+```
+
+# Encryption program
+```
+import random
+import string
+from operator import index
+
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
+key = chars.copy()
+
+random.shuffle(key)
+# print(f"chars: {chars}")
+# print(f"key: {key}")
+
+
+#Encrypt
+
+plain_text = input("Enter a message to encrypt: ")
+cipher_text = " "
+
+for letter in plain_text:
+    index = chars.index(letter)
+    cipher_text += key[index]
+
+print(f"orignal message: {plain_text}")
+print(f"encrypted message: {cipher_text}")
+
+#Decrypt
+
+cipher_text = input("Enter a message to encrypt: ")
+plain_text = " "
+
+for letter in cipher_text:
+    index = key.index(letter)
+    plain_text += chars[index]
+
+print(f"encrypted message: {cipher_text}")
+print(f"orignal message: {plain_text}")
+
+```
+
+# Hangman game in Python
+
+```
+from words_list import words
+import random
+
+#dictionary of key:()
+hangman_art = {0: ("   ",
+                   "   ",
+                   "   "),
+               1: (" o ",
+                   "   ",
+                   "   "),
+               2: (" o ",
+                   " | ",
+                   "   "),
+               3: (" o ",
+                   "/| ",
+                   "   "),
+               4: (" o ",
+                   "/|\\",
+                   "   "),
+               5: (" o ",
+                   "/|\\",
+                   "/  "),
+               6: (" o ",
+                   "/|\\",
+                   "/ \\")}
+
+def display_man(wrong_guesses):
+    print("**********")
+    for line in hangman_art[wrong_guesses]:
+        print(line)
+    print("**********")
+
+
+def display_hint(hint):
+    print(" ".join(hint))
+
+def dsiplay_answer(answer):
+    print(" ".join(answer))
+
+def main():
+    answer = random.choice(words)
+    hint = ["_"] * len(answer)
+    wrong_guesses = 0
+    guessed_letters = set()
+    is_running = True
+
+    while is_running :
+        display_man(wrong_guesses)
+        display_hint(hint)
+        guess = input("Enter a letter: ").lower()
+
+        if len(guess) != 1 or not guess.isalpha():
+            print("Invalid input")
+            continue
+        if guess in guessed_letters:
+            print(f"{guess} is already guessed")
+            continue
+
+        guessed_letters.add(guess)
+
+        if guess in answer:
+            for i in range(len(answer)):
+                if answer[i] == guess:
+                    hint[i] = guess
+
+        else:
+            wrong_guesses += 1
+        if "_" not in hint:
+            display_man(wrong_guesses)
+            dsiplay_answer(answer)
+            print("YOU WIN !")
+            is_running = False
+        elif wrong_guesses >= len(hangman_art) - 1 :
+            display_man(wrong_guesses)
+            dsiplay_answer(answer)
+            print("YOU LOSE!")
+            is_running = False
+
+if __name__ == '__main__':
+    main()
+
+
+```
+## Word_list
+```
+# word for hangman game
+
+words = ("aardvark", "alligator", "alpaca", "ant", "anteater", "antelope", "ape", "armadillo", "baboon", "badger", "bat", "bear", "beaver", "bee", "bison", "boar", "buffalo", "butterfly", "camel", "capybara", "caribou", "cat", "caterpillar", "cattle", "chamois", "cheetah", "chicken", "chimpanzee", "chinchilla", "chough", "clam", "cobra", "cockroach", "cod", "coyote", "crab", "crane", "crocodile", "crow", "curlew", "deer", "dinosaur", "dog", "dogfish", "dolphin", "donkey", "dormouse", "dotterel", "dove", "dragonfly", "duck", "dugong", "dunlin", "eagle", "echidna", "eel", "elephant", "elephant-seal", "elk", "emu", "falcon", "ferret", "finch", "fish", "flamingo", "fly", "fox", "frog", "gaul", "gazelle", "gerbil", "giant-panda", "giraffe", "gnat", "gnu", "goat", "goldfinch", "goldfish", "goose", "gorilla", "goshawk", "grasshopper", "grouse", "guanaco", "gull", "hamster", "hare", "hawk", "hedgehog", "heron", "herring", "hippopotamus", "hornet", "horse", "human", "hummingbird", "hyena", "ibex", "ibis", "jackal", "jaguar", "jay", "jellyfish", "kangaroo", "kingfisher", "koala", "komodo-dragon", "kookaburra", "kouprey", "kudu", "lapwing", "lark", "lemur", "leopard")
+
+```
+
+# Python Oop
+
+```
+from car import Car
+
+car1 = Car("Mustang", 2024, "black", False)
+car2 = Car("Corvette", 2025, "blue",True)
+car3 = Car("Tesla", 2025, "grey",True)
+
+
+# print(car2.model)
+# print(car2.year)
+# print(car2.color)
+# print(car2.for_sale)
+
+car1.describe()
+```
+## car 
+
+```
+class Car:
+    def __init__(self, model, year, color, for_sale):
+        self.model = model
+        self.year = year
+        self.color = color
+        self.for_sale = for_sale
+    def drive(self):
+        print(f"You drive the {self.color}{self.model}")
+
+    def stop(self):
+        print(f"You stop the {self.color} {self.model}")
+
+    def describe(self):
+        print(f"{self.year} {self.color} {self.model}")
+
+```
+
+# Class Variables
+
+```
+
+class Student:
+
+    class_year = 2028
+    num_student = 0
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        Student.num_student += 1
+
+student1 = Student("Spongebob", 30)
+student2 = Student("Patrick", 35)
+student3 = Student("Squidward",55)
+student4 = Student("Sandy",27)
+
+# print(student2.name)
+# print(student2.age)
+# print(Student.class_year)
+print(f"My graduating class of {Student.class_year} has { Student.num_student} students.")
+print(student1.name)
+print(student2.name)
+print(student3.name)
+print(student4.name)
+
+```
+
+# Inheritance
+
+```
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        self.is_alive = True
+
+    def eat(self):
+            print(f"{self.name} is eating")
+
+    def sleep(self):
+            print(f"{self.name} is sleeping")
+
+class Dog(Animal):
+    def speak(self):
+        print("WOOF")
+class Cat(Animal):
+    def speak(self):
+        print("MEOW")
+class Mouse(Animal):
+    def speak(self):
+        print("SQUEEK")
+dog = Dog("Scooby")
+cat =Cat("Garfield")
+mouse = Mouse("Mickey")
+
+print(dog.name)
+print(dog.is_alive)
+dog.eat()
+dog.sleep()
+dog.speak()
+
+```
+# Multiple inheritance
+
+```
+class Animal :
+
+    def __init__(self, name):
+        self.name = name
+
+
+    def eat(self):
+        print(f"{self.name} is eating")
+    def sleep(self):
+        print(f"{self.name} is sleeping")
+class Prey(Animal):
+    def flee(self):
+        print(f"{self.name} is fleeing")
+class Predator(Animal):
+    def hunt(self):
+        print(f"{self.name} is hunting")
+
+
+class Rabbit(Prey):
+    pass
+
+class Hawk(Predator):
+    pass
+
+class Fish(Prey, Predator):
+    pass
+
+rabbit = Rabbit("Bugs")
+hawk = Hawk("Tony")
+fish = Fish("Nemo")
+
+
+fish.sleep()
+
+```
+# Super ( )
+
+```
+from random import triangular
+
+
+class Shape:
+    def __init__(self,color, is_filled):
+        self.color = color
+        self.is_filled = is_filled
+    def describe(self):
+        print(f"It is {self.color} and {'filled' if self.is_filled else 'not filled'}")
+
+class Circle(Shape):
+    def __init__(self, color, is_filled, radius):
+        super().__init__(color, is_filled)
+        self.radius =radius
+
+    def describe(self):
+        super().describe()
+        print(f"It is a circle with an area of {3.14 * self.radius * self.radius} cm^2")
+
+
+class Square(Shape):
+    def __init__(self, color, is_filled, width):
+        super().__init__(color, is_filled)
+        self.width = width
+
+    def describe(self):
+        super().describe()
+        print(f"It is a square with an area of {self.width * self.width} cm^2")
+
+class Triangle(Shape):
+    def __init__(self, color, is_filled, width, height):
+        super().__init__(color, is_filled)
+        self.width = width
+        self.height = height
+
+    def describe(self):
+        super().describe()
+        print(f"It is a triangle with an area of {self.width * self.height / 2} cm^2")
+
+circle = Circle("blue", True, 5)
+square = Square("red", True, 6)
+triangle = Triangle("green", True, 5, 8)
+
+# print(triangle.color)
+# print(triangle.is_filled)
+# print(f"{triangle.width}cm")
+# print(f"{triangle.height}cm")
+
+triangle.describe()
+
+```
+
+# Polymorphism
+
+```
+from abc import ABC, abstractmethod
+
+class Shape:
+    @abstractmethod
+    def area(self):
+        pass
+
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius
+
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return  self.side ** 2
+
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return self.base * self.height * 0.5
+
+class Pizza(Circle):
+    def __init__(self, topping, radius):
+        super().__init__(radius)
+        self.topping = topping
+
+shapes = [Circle(4), Square(5), Triangle(6,7), Pizza("pepperoni", 25)]
+
+
+for shape in shapes:
+    print(f"{shape.area()}cm²")
+
+```
+
+# Duck typing 
+```
+
+class Animal:
+    alive = True
+
+class Dog(Animal):
+    def speak(self):
+        print("WOOF!")
+
+class Cat(Animal):
+    def speak(self):
+        print("MEOW!")
+class Car:
+    alive = False
+    def speak(self):
+        print("HONK!")
+
+
+animals = [Dog(), Cat(), Car()]
+
+for animal  in animals:
+    animal.speak()iiii
+    print(animal.alive)
+
+```
+# Static Method
+
+```
+class Employee:
+
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+    def get_info(self):
+        return f"{self.name} = {self.position}"
+    @staticmethod
+    def is_valid_position(position):
+        valid_positions = ["Manager", "Cashier", "Cook", "Janitor"]
+        return position in valid_positions
+
+employee1 = Employee("Eugune", "Manager")
+employee2 = Employee("Squidward", "Cashier")
+employee3 = Employee("Spongebob", "Cook")
+
+print(Employee.is_valid_position("manager"))
+print(employee1.get_info())
+print(employee2.get_info())
+print(employee3.get_info())
+
+
+```
+
+
+
+# Class Method
+
+```
+
+
+
+class Student:
+
+    count = 0
+    total_gpa = 0
+
+    def __init__(self, name, gpa):
+        self.name = name
+        self.gpa = gpa
+        Student.count += 1
+        Student.total_gpa += gpa
+
+    def get_info(self):
+        return f"{self.name} {self.gpa}"
+
+    @classmethod
+    def get_count(cls):
+        return f"Total # of student: {cls.count}"
+
+    @classmethod
+    def get_average_gpa(cls):
+        if cls.count == 0:
+            return 0
+        else:
+            return f"average gpa:{cls.total_gpa / cls.count:.2f}"
+student1 = Student("Spongebob", 3.2)
+student2 = Student("Patrick", 2.0)
+student3 = Student("Sandy", 4)
+
+print(Student.get_count())
+print(Student.get_average_gpa())
+
+
+```
+
+# Magic Method
+
+```
+
+class Book:
+    def __init__(self, title, author, num_pages):
+        self.title = title
+        self.author = author
+        self.num_pages = num_pages
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+    def __eq__(self, other):
+        return self.title == other.title and  self.author == other.title
+
+    def __lt__(self, other):
+        return self.num_pages < other.num_pages
+
+    def __gt__(self, other):
+        return self.num_pages > other.num_pages
+
+    def __add__(self, other):
+        return f"{self.num_pages + other.num_pages} pages"
+
+    def __contains__(self, keyword):
+        return keyword in self.title or keyword in self.author
+
+    def __getitem__(self, key):
+        if key == "title":
+            return self.title
+        elif  key == "author":
+            return self.author
+        elif key == "num_pages":
+            return self.num_pages
+        else:
+            return f"Key {key} was not found"
+book1 = Book ("The Hobbit", "J.R.R Tolkien", 310)
+book2 = Book ("Harry Potter and The Philosopher", "J.K Rowling", 223)
+book3 = Book ("Then Lion and the Wardrobe", "C.S. Lewis", 117)
+
+print(book3)
+print(book1 == book2)
+print(book2 < book3)
+print(book2 > book3)
+print(book2 + book3)
+print("Lion" in book3)
+print(book1 ['title'])
+print(book3['audio'])
+
+```
+
+# Property 
+
+```
+
+
+
+
+class Rectangle:
+    def __init__(self, width, height):
+        self._width = width
+        self._height = height
+
+    @property
+    def width(self):
+        return f"{self._width:.1f}cm"
+
+    @property
+    def height(self):
+        return f"{self._height:.1f}cm"
+
+    @width.setter
+    def width(self, new_width):
+        if new_width > 0 :
+            self._width = new_width
+        else:
+            print("Width must be greater than zero")
+
+    @height.setter
+    def height(self, new_height):
+        if new_height > 0:
+            self._height = new_height
+        else:
+            print("Height must be greater than zero")
+    @width.deleter
+    def width(self):
+        del self._width
+        print("Width has been deleted")
+
+    @height.deleter
+    def height(self):
+        del self._height
+        print("Height has been deleted")
+
+rectangle = Rectangle(3,4)
+
+
+rectangle.width = 5
+rectangle.height = 6
+
+del rectangle.width
+del rectangle.height
+
+```
+
+# Decorator
+
+```
+
+
+def add_sprinkles(func):
+    def wrapper(*args, **kwargs):
+        print("* You add sprinkles *")
+        func(*args, **kwargs)
+    return wrapper
+
+def add_fude(func):
+    def wrapper(*args, **kwargs):
+        print("* You add fudge *")
+        func(*args, **kwargs)
+    return wrapper
+
+@add_sprinkles
+@add_fude
+
+def get_ice_cream(flavor):
+    print(f"Here is your {flavor} icecream")
+
+
+get_ice_cream("Vanilla")
+
+```
+# Exception handlying
+
+```
+
+
+try:
+    number = int(input("Enter a number: "))
+    print(1 / number)
+except ZeroDivisionError:
+    print("You can't divide by zero")
+
+except ValueError:
+    print("Enter only numbers please!")
+
+except Exception:
+    print("Something went wrong")
+
+finally:
+    print("Do some cleanup!")
+
+```
+
+# File detection 
+
+```
+
+
+
+import os
+
+file_path = "C:/Users/WELCOME/Desktop/test"
+
+if os.path.exists(file_path):
+    print(f"The location '{file_path}' exists")
+    if os.path.isfile(file_path):
+        print("That is a file")
+    elif os.path.isdir(file_path):
+        print("That is a directory")
+
+else:
+    print("The location doesn't exists")
+
+```
+
+# writing file
+
+## .txt
+
+```
+employees = ["Eugene", "Squidward", "Spongebob", "Patrick"]
+
+file_path = "C:/Users/WELCOME/Desktop/output.txt"
+
+try:
+    with open(file_path, "a") as file:
+        for employee in employees:
+            file.write("\n" + employee)
+        print(f"txt file '{file_path}' was created")
+
+except FileExistsError:
+    print("That file already exists")
+```
+## json
+
+```
+import json
+employee = {
+    "name": "Spongebob",
+    "age" : "30",
+    "job" : "cook"
+}
+file_path = "C:/Users/WELCOME/Desktop/output.json"
+
+try:
+    with open(file_path, "w") as file:
+        json.dump(employee, file, indent=4)
+        print(f"json file '{file_path}' was created")
+
+except FileExistsError:
+    print("That file already exists")
+```
+
+## csv
+
+```
+
+import csv
+
+employees = [["Name", "Age", "Job"],
+            ["Spongebob", 30, "Cook"],
+            ["Patrick", 37, "Unemployed"],
+            ["Sandy", 27, "Scientist"]]
+file_path = "C:/Users/WELCOME/Desktop/output.csv"
+
+try:
+    with open(file_path, "w", newline= "") as file:
+        writer = csv.writer(file)
+        for row in employees:
+            writer.writerow(row)
+        print(f"csv file '{file_path}' was created")
+
+except FileExistsError:
+    print("That file already exists")
+
+```
+
+# reading file
+
+## .txt
+
+```
+file_path = "C:/Users/WELCOME/Desktop/input.txt"
+
+try:
+    with open(file_path, "r") as file:
+        content = file.read()
+        print(content)
+
+except FileNotFoundError:
+    print("That file was not found")
+
+except PermissionError:
+    print("You do not have permission to read that file")
+```
+
+## json
+
+```
+import json
+file_path = "C:/Users/WELCOME/Desktop/output.json"
+
+try:
+    with open(file_path, "r") as file:
+        content = json.load(file)
+        print(content["name"])
+
+except FileNotFoundError:
+    print("That file was not found")
+
+except PermissionError:
+    print("You do not have permission to read that file")
+
+
+```
+
+## csv 
+
+```
+
+import csv
+file_path = "C:/Users/WELCOME/Desktop/output.csv"
+
+try:
+    with open(file_path, "r") as file:
+        content = csv.reader(file)
+        for line in content:
+            print(line)
+
+except FileNotFoundError:
+    print("That file was not found")
+
+except PermissionError:
+    print("You do not have permission to read that file")
+
+```
+
+# dates and times
+
+```
+
+
+import datetime
+
+date = datetime.date(2025, 1, 12)
+today = datetime.date.today()
+
+time = datetime.time(12, 30, 0)
+now = datetime.datetime.now()
+
+now= now.strftime("%H:%M:%S %m-%d-%y")
+
+target_datetime = datetime.datetime(2020, 1, 2, 12, 30, 3)
+current_datetime = datetime.datetime.now()
+
+if target_datetime < current_datetime:
+    print("Target date has already passed")
+else:
+    print("Target has NOT passed")
+
+```
+
+# Alarm clock
+
+```
+
+import time
+import datetime
+import pygame
+
+def set_alarm(alarm_time):
+    print(f"Alarm set for {alarm_time}")
+    sound_file = "Stuff/MA MARE PANI SWAR  Swapnil Sharma, Rohit Shakya & Gautam Tandukar.mp3"
+    is_running = True
+    while is_running:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        print(current_time)
+        if current_time == alarm_time:
+            print("WAKE UP!!!")
+
+            pygame.mixer.init()
+            pygame.mixer.music.load(sound_file)
+            pygame.mixer.music.play()
+
+            while pygame.mixer.music.get_busy():
+                time.sleep(1)
+
+            is_running = False
+
+        time.sleep(1)
+
+if __name__ == "__main__":
+    alarm_time = input("Enter the alarm time (HH:MM:SS): ")
+    set_alarm(alarm_time)
+```
+
+
+# Multithreading
+
+```
+
+
+
+import threading
+import time
+
+def walk_dog(first):
+    time.sleep(8)
+    print(f"You finish walking {first}")
+def take_out_trash():
+    time.sleep(2)
+    print("You take out the trash")
+def get_mail():
+    time.sleep(4)
+    print("You get the mail")
+chore1 = threading.Thread(target=walk_dog, args=("Scooby",))
+chore1.start()
+
+chore2 = threading.Thread(target = take_out_trash)
+chore2.start()
+
+chore3 = threading.Thread(target=get_mail)
+chore3.start()
+
+chore1.join()
+chore2.join()
+chore3.join()
+
+print("All chores are complete")
+
+
+```
+
+# request api
+```
+
+
+
+import requests
+
+base_url = "https://pokeapi.co/api/v2/"
+
+def get_pokemon_info(name):
+    url = f" {base_url}/pokemon/{name}"
+    response = requests.get(url)
+    print(response)
+
+    if response.status_code == 200:
+        pokemon_data =response.json()
+        return pokemon_data
+    else:
+        print(f"Failed to retrieve data {response.status_code}")
+
+
+pokemon_name = "greninja"
+
+pokemon_info = get_pokemon_info(pokemon_name)
+
+if pokemon_info:
+    print(f"Name:{pokemon_info["name"].capitalize()}")
+    print(f"Id :{pokemon_info["id"]}")
+    print(f"Height: {pokemon_info["height"]}")
+    print(f"weight: {pokemon_info["weight"]}")
+
+```
+
+# PyQt5 GUI
+
+```
+
+
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtGui import QIcon
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("My first GUI")
+        self.setGeometry(300, 100, 500, 500)
+        self.setWindowIcon(QIcon("Stuff/WhatsApp Image 2025-08-15 at 3.56.18 PM (1).jpeg"))
+
+def main():
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
+
+
+```
